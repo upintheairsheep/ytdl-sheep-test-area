@@ -53,7 +53,7 @@ def run(url, res, dir):
         下载指定分辨率以内的最好视频，帧率30以上，
         如果没有帧率大于30的视频，则选择最差的视频(仍优先选择帧率大于30的视频
     '''
-    # cmd = f'yt-dlp -f "((bv*[fps>30]/bv*)[height<={res}][ext=mp4]/(wv*[fps>30][ext=mp4]/wv*)) + ba[ext=m4a] / (b[fps>30]/b)[height<={res}][ext=mp4]/(w[fps>30]/w)" -o "{output_template}" "{url}"'
+    # cmd = f'yt-dlp --live-from-start -f "((bv*[fps>30]/bv*)[height<={res}][ext=mp4]/(wv*[fps>30][ext=mp4]/wv*)) + ba[ext=m4a] / (b[fps>30]/b)[height<={res}][ext=mp4]/(w[fps>30]/w)" -o "{output_template}" "{url}"'
     # 指定分辨率 并发2
     cmd = f'yt-dlp -f "bv + ba / b / w" -S "res:{res}" -o "{output_template}" "{url}" --merge-output-format mp4 -N 3'
     print(f'执行命令：{cmd}')
