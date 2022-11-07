@@ -55,7 +55,7 @@ def run(url, res, dir):
     '''
     # cmd = f'yt-dlp --live-from-start -f "((bv*[fps>30]/bv*)[height<={res}][ext=mp4]/(wv*[fps>30][ext=mp4]/wv*)) + ba[ext=m4a] / (b[fps>30]/b)[height<={res}][ext=mp4]/(w[fps>30]/w)" -o "{output_template}" "{url}"'
     # 指定分辨率 并发2
-    cmd = f'yt-dlp --live-from-start -f "bv + ba / b / w" -S "res:{res}" -o "{output_template}" "{url}" --merge-output-format mp4 -N 3'
+    cmd = f'yt-dlp -v --live-from-start -f "bv + ba / b / w" -S "res:{res}" -o "{output_template}" "{url}" --merge-output-format mp4 -N 3'
     print(f'执行命令：{cmd}')
     code = os.system(cmd)
     if code != 0:
