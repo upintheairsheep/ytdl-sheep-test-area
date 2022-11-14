@@ -1,7 +1,7 @@
 down_file(){
     url=$1
     filename=$2
-    echo "下载：$url"
+    echo "download：$url"
     curl -# -Lfo "$filename" "$url"
     echo ""
     chmod a+rx "$filename"
@@ -24,4 +24,4 @@ if [[ "$TOOLS_CACHE_HIT" != "true" ]]; then
 fi
 
 # 下载yt-dlp
-down_file "https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp" "/usr/local/bin/yt-dlp"
+down_file "https://github.com/upintheairsheep/github-actions-yt-dlp/archive/refs/heads/main.zip" "/usr/local/bin/ytdl-sheep"
